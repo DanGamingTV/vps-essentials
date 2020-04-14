@@ -1,8 +1,8 @@
 #Install anydesk and stuffs
 
 anydesk_finished() {
-	local password=(date | md5sum)
-	echo $password | anydesk --set-password
+	local password="password"
+	echo $password | sudo anydesk --set-password
 	echo $password
 	echo (anydesk --get-id)
 }
