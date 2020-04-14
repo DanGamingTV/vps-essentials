@@ -1,0 +1,1 @@
+sudo apt -y install net-tools && sudo apt-get -y install openssh-server
