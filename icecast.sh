@@ -1,4 +1,4 @@
-LIST="node nodejs npm"
+LIST="icecast2"
 
 for pkg in $LIST; do
     if dpkg --get-selections | grep -q "^$pkg[[:space:]]*install$" >/dev/null; then
