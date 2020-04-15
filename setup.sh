@@ -6,8 +6,14 @@ anydesk_finished() {
 	echo $password
 	echo $(anydesk --get-id)
 }
-sudo apt -y install curl
-sudo wget -qO - https://keys.anydesk.com/repos/DEB-GPG-KEY | apt-key add -
-sudo echo "deb http://deb.anydesk.com/ all main" > /etc/apt/sources.list.d/anydesk-stable.list
-sudo apt -y update
-sudo apt -y install anydesk && anydesk_finished
+sudo yum -y install curl
+cat > /etc/yum.repos.d/AnyDesk-CentOS.repo << "EOF"
+[anydesk]
+name=AnyDesk CentOS - stable
+baseurl=http://rpm.anydesk.com/centos/$basearch/
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://keys.anydesk.com/repos/RPM-GPG-KEY
+EOF
+sudo yum -y update
+sudo yum -y install anydesk && anydesk_finished

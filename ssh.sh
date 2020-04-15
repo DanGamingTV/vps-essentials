@@ -1,1 +1,1 @@
-sudo apt -y install net-tools && sudo apt-get -y install openssh-server
+sudo yum -y install net-tools && sudo yum -y install openssh-server
